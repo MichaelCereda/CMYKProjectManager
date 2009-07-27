@@ -2,7 +2,7 @@
 Loader=python
 Module=CMYKProjectManager
 IAge=2
-Name=CMYKProject Manager
+Name=CMYKProject Manager 0.1
 Description=A Simple TextMate-Like Project Manager
 Icon=folder-open
 Authors=Michael Cereda <michael.cereda@gmail.com>
