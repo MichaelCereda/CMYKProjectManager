@@ -272,6 +272,14 @@ class CMYKProjectManager:
 
         return True
 
+    def open_project_folder(self, path):
+        c_path = self.tree_parser.ls[path]
+        if c_path == None: return False
+        else:
+            file_path, file_name, file_type, file_icon=c_path
+
+            os.system("xdg-open '%s'" % file_path)
+
     def __onClick(self, treeview, event):
         #print "Clicked:Event>",event.button
         if event.button == 2:
@@ -297,11 +305,20 @@ class CMYKProjectManager:
 
             # it's a project root!
             if len(path)==1:
+                # Compress menubar
+                #comp = gtk.ImageMenuItem(gtk.STOCK_CDROM)
+
+                # Open Project Folder
+                f = gtk.ImageMenuItem(gtk.STOCK_OPEN)
+                menu.append(f)
+                f.show()
+                f.connect("activate",lambda w,p: self.open_project_folder(p), path)
+
                 m = gtk.ImageMenuItem(gtk.STOCK_DELETE)
                 menu.append(m)
                 m.show()
 
-                m.connect("activate", lambda w,p: self.remove_project_at_pos(p),path)
+                m.connect("activate", lambda w,p: self.remove_project_at_pos(p), path)
 #            else:
 
             # add the menu items from the parser
