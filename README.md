@@ -38,12 +38,16 @@ Credits
 -------
 
 Thanks to all the creators of gedit plugins, i've used pieces of code from:
- - Class Browser Plugin, Frederic Back
- - scratchTab, Rui Nibau
+ * Class Browser Plugin, Frederic Back
+ * scratchTab, Rui Nibau
 
 
 Changes
 -------
+> @2009-08-06
+> Added Show in default file browser.
+> Now you can "jump" directly to the project folder in your default file browser
+> right-clicking on the project browser folder and selecting 'Open'
 
 > @2009-07-27
 > First commit.
