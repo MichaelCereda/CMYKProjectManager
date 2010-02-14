@@ -89,6 +89,7 @@ class CMYKProjectManager:
 
         # add a text column to the treeview
         self.column = gtk.TreeViewColumn()
+        self.column.set_sort_column_id(0) 
         self.projectbrowser.append_column(self.column)
 
         self.cellrendererpixbuf = gtk.CellRendererPixbuf()
@@ -118,6 +119,7 @@ class CMYKProjectManager:
         self.getProjectsList()
 
     def set_model(self):
+        self.tree_parser.ls.set_sort_func(0, self.tree_parser.sort_tree)
         self.projectbrowser.set_model(self.tree_parser.ls)
 
     def create_menu_item(self):
@@ -253,7 +255,7 @@ class CMYKProjectManager:
         panel = self._window.get_side_panel()
         icon = gtk.Image()
         icon.set_from_stock(gtk.STOCK_DIRECTORY, gtk.ICON_SIZE_MENU)
-
+	
         panel.add_item(self._tab, "CMYKProjectManager", icon)
 
 
@@ -264,7 +266,13 @@ class CMYKProjectManager:
         if c_path == None: return False
         else:
             file_path, file_name, file_type, file_icon=c_path
-            self.__openDocumentAtLine('file://'+file_path,1)
+	    if os.path.isdir(file_path):
+		if self.projectbrowser.row_expanded(path):
+			self.projectbrowser.collapse_row(path)
+		else:
+			self.projectbrowser.expand_row(path,False)
+	    else:
+            	self.__openDocumentAtLine('file://'+file_path,1)
 
     def on_row_activated(self, treeview, path, view_column):
 
