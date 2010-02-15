@@ -19,14 +19,14 @@ Installation
 Features
 -------
  Current version:
-  - Adds a project via drag & drop
-  - Right clicking on the Project root allows the user to open the corrispective directory
+  * Adds a project via drag & drop
+  * Right clicking on the Project root allows the user to open the corrispective directory
 
  In Development:
-  - Visualize icons of the files
-  - Compress the project directory in an archive (for backup purposes)
-  - Sorting
-  - Gedit Menus integration (adding a project, remove projects etc..)
+  * Visualize icons of the files
+  * Compress the project directory in an archive (for backup purposes)
+  * Sorting
+  * Gedit Menus integration (adding a project, remove projects etc..)
 
 License
 -------
