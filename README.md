@@ -16,6 +16,18 @@ Installation
 4. Restart Gedit and use the plugin dragging your first project (a folder )
    over his left panel
 
+Features
+-------
+ Current version:
+  - Adds a project via drag & drop
+  - Right clicking on the Project root allows the user to open the corrispective directory
+
+ In Development:
+  - Visualize icons of the files
+  - Compress the project directory in an archive (for backup purposes)
+  - Sorting
+  - Gedit Menus integration (adding a project, remove projects etc..)
+
 License
 -------
 
@@ -44,6 +56,9 @@ Thanks to all the creators of gedit plugins, i've used pieces of code from:
 
 Changes
 -------
+> @2010-02-15
+> Fixed the "Click on directory" error, now clicking on a directory just open the Treeview
+
 > @2009-08-06
 > Added Show in default file browser.
 > Now you can "jump" directly to the project folder in your default file browser
