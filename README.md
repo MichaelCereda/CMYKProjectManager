@@ -21,11 +21,11 @@ Features
  Current version:  
   - Adds a project via drag & drop  
   - Right clicking on the Project root allows the user to open the corrispective directory  
+  - Basic files sorting
 
  In Development:  
   - Visualize icons of the files  
-  - Compress the project directory in an archive (for backup purposes)  
-  - Sorting  
+  - Compress the project directory in an archive (for backup purposes)
   - Gedit Menus integration (adding a project, remove projects etc..)  
 
 License
@@ -56,6 +56,10 @@ Thanks to all the creators of gedit plugins, i've used pieces of code from:
 
 Changes
 -------
+> @2010-02-15  -  thanks ukanga [http://github.com/ukanga]
+> Added basic sorting
+> Fixed the "Can't create a project" error
+
 > @2010-02-15
 > Fixed the "Click on directory" error, now clicking on a directory just open the Treeview
 

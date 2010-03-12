@@ -24,9 +24,15 @@ class TreeParser():
     def __init__(self):
         # id, filename, description, [pixbuf]
         self.ls = gtk.TreeStore( str, str ,str, gtk.gdk.Pixbuf )
+        
         self.currentfile = None
         self.ilibrary = icon_library.GnomeFileIcons()
-
+        
+    def sort_tree(self, model, item1, item2, column):
+        data1 = model.get_value(iter1, 0)[column]
+        data2 = model.get_value(iter1, 0)[column]  
+        print "sorting:", data1, data2, cmp(data1,data2)
+        return cmp(data1,data2)
 
     def parsePath(self, path, c_iter):
 
@@ -34,7 +40,7 @@ class TreeParser():
 
         def scanPath(path,c_iter):
             if(path == ''): return False
-            for infile in os.listdir(path):
+            for infile in sorted(os.listdir(path)):
                 file_path = os.path.join(path,infile)
                 if(isDir(file_path)):
                     #print "current directory: "+ infile
@@ -42,9 +48,9 @@ class TreeParser():
                     new_dir_to_scan = self.ls.append(c_iter,( file_path, infile, 'folder', self.ilibrary.get_icon_pixbuf(file_path) ))
                     scanPath(file_path,new_dir_to_scan)
                 else:
-                    #print "current file is: " + infile
+                    # print "current file is: " + infile + " -> " +self.ilibrary.get_icon_pixbuf(file_path)
 
-                    self.ls.append(c_iter, ( file_path, infile ,'file', self.ilibrary.get_icon_pixbuf(file_path) ))
+                    self.ls.append(c_iter, ( file_path, infile ,'file', self.ilibrary.get_icon_pixbuf(file_path)))
 
         scanPath(path, c_iter)
         return self.ls
@@ -55,6 +61,6 @@ class TreeParser():
 
     def pixbufrenderer(self, column, crp, treemodel, it):
         icon = treemodel.get_value(it, 3)
-        #print icon
+        #print "PixbufRenderer> "+icon
         crp.set_property("pixbuf",icon)
 

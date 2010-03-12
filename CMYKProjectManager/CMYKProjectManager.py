@@ -119,7 +119,7 @@ class CMYKProjectManager:
         self.getProjectsList()
 
     def set_model(self):
-        self.tree_parser.ls.set_sort_func(0, self.tree_parser.sort_tree)
+       # self.tree_parser.ls.set_sort_func(0, self.tree_parser.sort_tree)
         self.projectbrowser.set_model(self.tree_parser.ls)
 
     def create_menu_item(self):

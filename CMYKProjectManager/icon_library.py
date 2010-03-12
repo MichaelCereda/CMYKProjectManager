@@ -86,6 +86,7 @@ class GnomeFileIcons:
 
         #search in the cache
         if mime_type in self.cache:
+            #print self.cache[mime_type]
             return self.cache[mime_type]
 
         #try gnome mime
@@ -116,15 +117,19 @@ class GnomeFileIcons:
 #        icon.set_from_stock(gtk.STOCK_FILE, gtk.ICON_SIZE_MENU)
         icon_name = gtk.STOCK_FILE
         self.cache[mime_type] = self.icon_theme_icons.load_icon(icon_name,gtk.ICON_SIZE_MENU,0)
+        
         return self.cache[mime_type]
 
     def set_icon(self, path):
-#        iconname, pxbuf = self.getIconPixbuf(path)
+        #iconname, pxbuf = self.getIconPixbuf(path)
 
         #print iconname,": ", pxbuf
         return self.getIconPixbuf(path)
 
     def get_icon_pixbuf(self, path):
+	#iconname, pxbuf = self.getIconPixbuf(path)
+
+        #print iconname,": ", pxbuf
         return self.getIconPixbuf(path)
 
 
